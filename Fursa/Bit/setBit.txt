@@ -1,0 +1,15 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class HelloWorld {
+    public static int setBits(int num) {
+        if (num == 0) {
+            return 0;
+        }
+        return (num & 1) + setBits(num >> 1);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(setBits(10));
+    }
+}

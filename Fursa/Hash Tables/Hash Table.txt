@@ -1,0 +1,62 @@
+class Node {
+public:
+    int val;
+    Node* next;
+
+    Node(int value) : val(value), next(nullptr) {}
+};
+class MyHashSet {
+    vector<list<Node*>> buckets;
+public:
+    MyHashSet() {
+        buckets.resize(10);
+    }
+    
+    void add(int key) {
+        Node* newNode = new Node(key);
+        buckets[key % 10].push_front(newNode);
+    }
+    void remove(int key) {
+        int index = key % 10;
+        std::list<Node*>& x = buckets[index];
+
+        auto it = x.begin();
+        while (it != x.end()) {
+            if ((*it)->val == key) {
+                Node* temp = *it;
+                it = x.erase(it);
+                delete temp;
+            } else {
+                ++it;
+            }
+        }
+    }
+
+bool contains(int key) {
+    int index = key % 10;
+    list<Node*>& x = buckets[index];
+    
+    auto it = x.begin();
+    while (it != x.end()) {
+        if ((*it)->val == key) {
+            return true;
+        }
+        ++it;
+    }
+
+    return false;
+}
+
+
+};
+
+/**
+ * Your MyHashSet object will be instantiated and called as such:
+ * MyHashSet* obj = new MyHashSet();
+ * obj->add(key);
+ * obj->remove(key);
+ * bool param_3 = obj->contains(key);
+
+
+ https://leetcode.com/problems/design-hashset/submissions/
+ */

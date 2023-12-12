@@ -1,0 +1,45 @@
+class MyStack {
+  Queue<Integer> Queue1;
+  Queue<Integer> Queue2;
+    public MyStack() {
+        Queue1=new ArrayDeque<>();
+        Queue2=new ArrayDeque<>();
+    }
+
+    public void push(int x) {
+        Queue2.offer(x);
+        while(!Queue1.isEmpty())
+         Queue2.offer(Queue1.poll());
+          Queue<Integer> tmp;
+          tmp=Queue1;
+          Queue1=Queue2;
+          Queue2=tmp;
+    }
+    
+    public int pop() {
+
+          return  Queue1.poll();
+    }
+    
+    public int top() {
+        return(Queue1.peek());
+    }
+    
+    public boolean empty() {
+        if(Queue1.isEmpty()&&Queue2.isEmpty())return true;
+        return false;
+    }
+}
+
+/**
+ * Your MyStack object will be instantiated and called as such:
+ * MyStack obj = new MyStack();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.top();
+ * boolean param_4 = obj.empty();
+
+
+
+ https://leetcode.com/problems/implement-stack-using-queues/
+ */

@@ -1,0 +1,3 @@
+factorial number:
+
+each recursive call in your program uses o(1) space, and i have n recursive calls in the worst case, then the overall space complexity would be o(n).

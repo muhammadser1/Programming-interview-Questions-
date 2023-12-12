@@ -1,0 +1,14 @@
+• Implement the bubble sort algorithm:
+The Bubble Sort algorithm consists of two nested loops. The outer loop iterates over each index from 0 to n-1, representing the number of passes needed to sort the entire array. Within each pass, the inner loop compares adjacent elements and swaps them if they are in the wrong order. The number of comparisons in each pass is n-i-1, where i is the current pass number. Therefore, the total number of comparisons and swaps in the worst case is given by the sum of (n-1) + (n-2) + ... + 1.
+
+• Implement the merge sort algorithm:
+
+Mergesort divides the array recursively into two subarrays and then uses the merge function to merge two smaller arrays into one larger array. The time complexity can be 
+expressed as T(n)=T(n/2)+o(n)...
+
+O(nlogn).
+
+• Implement the quick sort algorithm:
+its can be T(n)=T(n/2)+o(n/2)  >>> o(nlogn) but
+the worst-case time complexity of this implementation is o(n^2)
+ when the pivot selection consistently results in unbalanced partitions. The worst-case occurs when the pivot is always chosen as the smallest or largest element.
